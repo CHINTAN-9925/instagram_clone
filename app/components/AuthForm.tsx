@@ -21,11 +21,12 @@ const AuthForm: React.FC = () => {
                 <VStack spacing={4}>
                     <Image
                         src={logo}
+                        width={200}
                         alt="Login image"
                     />
-                    <Input placeholder='Email' size='lg' variant='outline' value={input.email} onChange={(e) => setInput({ ...input, email: e.target.value })} />
-                    <Input placeholder='Password' size='lg' variant='outline' value={input.password} onChange={(e) => setInput({ ...input, password: e.target.value })} />
-                    {!isLogin && <Input placeholder='Confirm Password' size='lg' variant='outline' value={input.confirmPassword} onChange={(e) => setInput({ ...input, confirmPassword: e.target.value })} />}
+                    <Input placeholder='Email' size='sm' variant='outline' value={input.email} onChange={(e) => setInput({ ...input, email: e.target.value })} />
+                    <Input placeholder='Password' size='sm' variant='outline' value={input.password} onChange={(e) => setInput({ ...input, password: e.target.value })} />
+                    {!isLogin && <Input placeholder='Confirm Password' size='sm' variant='outline' value={input.confirmPassword} onChange={(e) => setInput({ ...input, confirmPassword: e.target.value })} />}
                     <Button colorScheme='blue' w={'full'} onClick={handleSubmit} >
                         {!isLogin ? 'Sign Up' : 'Log In'}
                     </Button>
