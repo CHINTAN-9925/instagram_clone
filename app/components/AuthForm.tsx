@@ -2,10 +2,12 @@
 import { Box, Button, Flex, Input, VStack, Text, Link } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation';
 import logo from '../assets/logo.png'
 import google from '../assets/google.png'
 
 const AuthForm: React.FC = () => {
+    const router = useRouter();
     const [isLogin, setIsLogin] = useState<boolean>(false);
     const [input, setInput] = useState({
         email: '',
@@ -13,7 +15,13 @@ const AuthForm: React.FC = () => {
         confirmPassword: ''
     })
     const handleSubmit = () => {
+        if(!input.email || !input.password){
+            alert('Please enter email and password')
+            return
+        }
         console.log(input)
+        router.push('/home')
+
     }
     return (
         <>
@@ -28,7 +36,7 @@ const AuthForm: React.FC = () => {
                     <Input placeholder='Password' size='sm' variant='outline' value={input.password} onChange={(e) => setInput({ ...input, password: e.target.value })} />
                     {!isLogin && <Input placeholder='Confirm Password' size='sm' variant='outline' value={input.confirmPassword} onChange={(e) => setInput({ ...input, confirmPassword: e.target.value })} />}
                     <Button colorScheme='blue' w={'full'} onClick={handleSubmit} >
-                        {!isLogin ? 'Sign Up' : 'Log In'}
+                        {!isLogin ?  'Log In':'Sign Up' }
                     </Button>
                     <Box w={"full"}>
                         <Flex alignItems={'center'} justifyContent={'center'} >
