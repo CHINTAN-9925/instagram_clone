@@ -1,0 +1,33 @@
+# Ignore files and directories generated during development/build
+node_modules
+.next
+out
+.DS_Store
+
+# Ignore development-related files
+*.log
+*.tsbuildinfo
+*.bak
+.vscode
+coverage
+__tests__
+
+# Ignore source control files
+.git
+.gitignore
+
+# Ignore editor-specific files
+.idea
+*.sublime-project
+*.sublime-workspace
+Thumbs.db
+
+# Ignore environment files
+.env*
+.env.local
+
+# Ignore package manager lock files
+yarn.lock
+package-lock.json
+
+
